@@ -1,4 +1,5 @@
 import random
+import time
 
 N = 10
 
@@ -70,19 +71,21 @@ def merge_sort(A, p=0, r=None):
 	merge(A, p, q, r)         # merge A[p: q] and A[q+1: r] into A[p: r]
  
 def main():
-
+	t0 = time.time()
     print("Lab 1 - merge sort")
     
     for i in range(N):
-        arr[i] = random.randint(0, 99)
+        arr[i] = random.randint(0, 10*N)
 
     print("List before sorting:")
-    print_array(arr)
+    # print_array(arr)
     
     merge_sort(arr)
-    
+	t1 = time.time()
+	print(f'Time elapsed: {t1-t0}')
+
     print("List after sorting:")
-    print_array(arr)
+    # print_array(arr)
 
 if __name__ == "__main__":
     main()
